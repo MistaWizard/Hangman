@@ -9,6 +9,8 @@ var winCounter = 0;
 var lossCounter = 0;
 var numGuesses = 9;
 
+
+// Function used to start the game
 function startGame() {
   numGuesses = 9;
   chosenWord = game[Math.floor(Math.random() * game.length)];
@@ -27,6 +29,8 @@ function startGame() {
   document.getElementById("wrong-guesses").innerHTML = wrongGuesses.join(" ");
 }
 
+
+// Our function to determine if the user letters are actually in the word
 function checkLetters(letter) {
   var letterInWord = false;
   for (var i = 0; i < numBlanks; i++) {
@@ -50,6 +54,8 @@ function checkLetters(letter) {
   }
 }
 
+
+// Function to finish the round and determine if the player wins or loses and ends the round
 function roundComplete() {
   console.log("WinCount: " + winCounter + " | LossCount: " + lossCounter + " | NumGuesses: " + numGuesses);
   document.getElementById("guesses-left").innerHTML = numGuesses;
@@ -71,6 +77,8 @@ function roundComplete() {
   }
 }
 
+
+// Actually run the game
 startGame();
 document.onkeyup = function(event) {
   letterGuessed = String.fromCharCode(event.which).toLowerCase();
